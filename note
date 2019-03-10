@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
-(
-    # TODO:
-    # add support for arguments:
-    #   -o: [open] to open notes directory  (local repo)
-    #   -s: [sync] to pull/push
-    NOTES_REPO=~/.notes-dev
-    EDITOR=vim
-    FILE_PATH=$1
-    DIR_PATH=$(dirname $FILE_PATH)
 
-    cd $NOTES_REPO
-    if [ ! -d $DIR_PATH ]; then
-        mkdir -p $DIR_PATH
-    fi
-    $EDITOR $FILE_PATH
-    git add $FILE_PATH
-    git commit -m "Work on $FILE_PATH"
-    git push
-)
-    
+NOTES_REPO=~/.notes-dev
+EDITOR=vim
+FILE_PATH=$1
+DIR_PATH=$(dirname $FILE_PATH)
+
+cd $NOTES_REPO
+if [ ! -d $DIR_PATH ]; then
+    mkdir -p $DIR_PATH
+fi
+$EDITOR $FILE_PATH
+git add $FILE_PATH
+git commit -m "Work on $FILE_PATH"
+git push
+
