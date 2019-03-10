@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-NOTES_REPO=~/.notes-dev
+NOTES_REPO=~/.notes
 EDITOR=vim
+
+if [ "$#" -eq 0 ]; then
+    echo $NOTES_REPO
+    exit 0
+fi
+
 FILE_PATH=$1
 DIR_PATH=$(dirname $FILE_PATH)
 
 cd $NOTES_REPO
+
 if [ ! -d $DIR_PATH ]; then
     mkdir -p $DIR_PATH
 fi
